@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RR Aluminium & Glass Work | Greater Faridabad</title>
+<title>RR Aluminium and Glass Work | Aluminium & Glass Work in Greater Faridabad</title>
 <meta name="description" content="RR Aluminium & Glass Work - Aluminium windows and doors, toughened glass, mirrors and structural glazing in Greater Faridabad.">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -45,8 +45,23 @@ footer{background:#0c1217;color:#aeb8c0;text-align:center;padding:22px 20px;font
 @media(max-width:800px){.gallery{grid-template-columns:1fr 1fr}.gallery-item img{height:210px}}
 @media(max-width:520px){.gallery{grid-template-columns:1fr}.gallery-item img{height:250px}}
 </style>
-</head>
-<body>
+<style id="rr-new-features">
+.rr-nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:18px 0}
+.rr-nav a{padding:11px 16px;border-radius:10px;text-decoration:none;font-weight:700}
+.rr-section{padding:28px 16px;margin:20px auto;max-width:1100px}
+.rr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.rr-card{padding:16px;border-radius:12px;border:1px solid #ddd;background:#fff;box-shadow:0 3px 12px rgba(0,0,0,.06)}
+.rr-review{max-width:650px;margin:auto;padding:20px;border-radius:14px;border:1px solid #ddd}
+.rr-stars button{font-size:28px;background:none;border:0;cursor:pointer}
+.rr-review input,.rr-review textarea{width:100%;box-sizing:border-box;padding:12px;margin:7px 0;border:1px solid #ccc;border-radius:9px}
+.rr-full{position:fixed;inset:0;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;z-index:99999}
+.rr-full img{max-width:94vw;max-height:90vh;object-fit:contain}
+.rr-close{position:absolute;right:18px;top:8px;color:#fff;font-size:42px;cursor:pointer}
+</style></head>
+<body><nav class="rr-nav" aria-label="Main navigation">
+<a href="#home">Home</a><a href="#my-services">My Services</a>
+<a href="#our-work">Our Work</a><a href="#my-address">My Address</a>
+<a href="#rate-us">⭐ Rate Us</a></nav>
 <header>
 <div class="nav">
 <div class="logo">RR <span>ALUMINIUM & GLASS WORK</span></div>
@@ -123,5 +138,38 @@ footer{background:#0c1217;color:#aeb8c0;text-align:center;padding:22px 20px;font
 </section>
 
 <footer>© 2026 RR Aluminium & Glass Work • Sector 89, Greater Faridabad</footer>
-</body>
+<section id="my-services" class="rr-section"><h2>My Services</h2><div class="rr-grid"><div class="rr-card">🛠️ Aluminium Windows</div><div class="rr-card">🛠️ Aluminium Doors</div><div class="rr-card">🛠️ Toughened Glass</div><div class="rr-card">🛠️ Structural Glazing</div><div class="rr-card">🛠️ Glass Work</div><div class="rr-card">🛠️ Mirror Work</div><div class="rr-card">🛠️ Aluminium Partition</div><div class="rr-card">🛠️ Office &amp; Shop Fronts</div><div class="rr-card">🛠️ Sliding Windows &amp; Doors</div><div class="rr-card">🛠️ UPVC &amp; Aluminium Work</div><div class="rr-card">🛠️ Glass Railing</div><div class="rr-card">🛠️ Shower Enclosures</div><div class="rr-card">🛠️ Glass Canopy</div><div class="rr-card">🛠️ ACP Work</div><div class="rr-card">🛠️ Mosquito Net / Mesh Work</div><div class="rr-card">🛠️ Repair &amp; Replacement Work</div><div class="rr-card">🛠️ Custom Aluminium &amp; Glass Work</div></div></section><section id="my-address" class="rr-section">
+<h2>My Address</h2><div class="rr-card"><strong>RR Aluminium and Glass Work</strong>
+<p>Sector 89, Near Amrita Hospital Gate No. 2, Greater Faridabad</p>
+<p>📍 Greater Faridabad</p></div></section><section id="rate-us" class="rr-section"><h2>⭐ Rate Us & Give Your Review</h2>
+<div class="rr-review"><p>Select your rating:</p>
+<div class="rr-stars" id="rr-stars">
+<button type="button" data-star="1">☆</button><button type="button" data-star="2">☆</button>
+<button type="button" data-star="3">☆</button><button type="button" data-star="4">☆</button>
+<button type="button" data-star="5">☆</button></div>
+<input id="rr-name" placeholder="Your name"><textarea id="rr-text" rows="4" placeholder="Write your review"></textarea>
+<button type="button" id="rr-submit">Submit Review</button><p id="rr-msg"></p></div>
+<div id="rr-review-list"></div></section><script id="rr-new-features-js">
+(function(){
+let rating=0;
+const stars=[...document.querySelectorAll('#rr-stars button')];
+const paint=()=>stars.forEach(b=>b.textContent=(+b.dataset.star<=rating?'★':'☆'));
+stars.forEach(b=>b.onclick=()=>{rating=+b.dataset.star;paint()});
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+function load(){let a=[];try{a=JSON.parse(localStorage.getItem('rrReviews')||'[]')}catch(e){}
+document.getElementById('rr-review-list').innerHTML=a.map(r=>'<div class="rr-card" style="margin-top:12px"><b>'+esc(r.name)+'</b><div>'+('★'.repeat(r.rating))+'</div><p>'+esc(r.text)+'</p></div>').join('')}
+document.getElementById('rr-submit').onclick=()=>{
+let name=document.getElementById('rr-name').value.trim()||'Customer', text=document.getElementById('rr-text').value.trim();
+if(!rating){document.getElementById('rr-msg').textContent='Please select a star rating.';return}
+if(!text){document.getElementById('rr-msg').textContent='Please write a review.';return}
+let a=[];try{a=JSON.parse(localStorage.getItem('rrReviews')||'[]')}catch(e){}
+a.unshift({name,rating,text});localStorage.setItem('rrReviews',JSON.stringify(a.slice(0,30)));
+document.getElementById('rr-msg').textContent='Thank you for your review! ❤️';document.getElementById('rr-name').value='';document.getElementById('rr-text').value='';rating=0;paint();load()
+};
+document.querySelectorAll('img').forEach(img=>{img.style.cursor='zoom-in';img.addEventListener('click',()=>{
+let b=document.createElement('div');b.className='rr-full';b.innerHTML='<span class="rr-close">×</span><img src="'+img.src+'" alt="">';
+document.body.appendChild(b);b.onclick=e=>{if(e.target===b||e.target.className==='rr-close')b.remove()}
+})});load()
+})();
+</script></body>
 </html>
